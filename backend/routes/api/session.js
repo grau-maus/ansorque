@@ -44,6 +44,7 @@ router.delete(
   }
 );
 
+
 // Restore session user
 router.get(
   '/',
