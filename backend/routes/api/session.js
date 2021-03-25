@@ -43,6 +43,20 @@ router.delete(
     return res.json({ message: 'success' });
   }
 );
+
+// Restore session user
+router.get(
+  '/',
+  restoreUser,
+  (req, res) => {
+    const { user } = req;
+    if (user) {
+      return res.json({
+        user: user.toSafeObject()
+      });
+    } else return res.json({});
+  }
+);
 // SESSION ROUTES:----------------------------------------------------------------
 
 
