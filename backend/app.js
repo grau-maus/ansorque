@@ -4,10 +4,14 @@ const cors = require('cors');
 const csurf = require('csurf');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+const { ValidationError } = require('sequelize');
 
 // ROUTES:----------------------------------------------------------
 const routes = require('./routes');
 // ROUTES:----------------------------------------------------------
+
+
+
 
 // 'isProduction' WILL BE 'true' IF CHECK PASSES BY CHECKING THE ENVIRONMENT KEY WITHIN './backend/config/index.js'
 const { environment } = require('./config');
@@ -22,6 +26,9 @@ app.use(morgan('dev'));
 // 'cookie-parser' MIDDLEWARE FOR PARSING COOKIES AND 'express.json' MIDDLEWARE FOR PARSING JSON BODIES OF REQUESTS WITH 'Content-Type' OF 'application/json'
 app.use(cookieParser());
 app.use(express.json());
+
+
+
 
 // SECURITY MIDDLEWARE:----------------------------------------------
 if (!isProduction) {
@@ -52,9 +59,55 @@ app.use(
 );
 // SECURITY MIDDLEWARE:----------------------------------------------
 
+
+
+
 // CONNECTING ROUTES:------------------------------------------------
 app.use(routes);
 // CONNECTING ROUTES:------------------------------------------------
+
+
+
+
+// ERROR HANDLERS:---------------------------------------------------
+// CATCH UNHANDLED REQUESTS AND FORWARD TO ERROR HANDLER
+app.use((_req, _res, next) => {
+  const err = new Error("The requested resource couldn't be found.");
+
+  err.title = "Resource Not Found";
+  err.errors = ["The requested resource couldn't be found."];
+  err.status = 404;
+
+  // 'next()' MUST BE INVOKED WITH ERROR OTHERWISE ERROR HANDLERS WILL NOT BE PASSED TO THE NEXT ERROR HANDLER AFTER 'next()' IS CALLED
+  next(err);
+});
+
+// PROCESS SEQUELIZE ERRORS
+app.use((err, _req, _res, next) => {
+  // CHECK IF ERROR IS A SEQUELIZE ERROR
+  if (err instanceof ValidationError) {
+    err.errors = err.errors.map((e) => e.message);
+    err.title = 'Validation error';
+  }
+
+  // EITHER ADD SEQUELIZE ERRORS OR KEEP PASSING THE ERROR TO THE NEXT HANDLER
+  next(err);
+});
+
+// ERROR FORMATTER
+app.use((err, _req, res, _next) => {
+  res.status(err.status || 500);
+
+  console.error(err);
+
+  res.json({
+    title: err.title || 'Server Error',
+    message: err.message,
+    errors: err.errors,
+    stack: isProduction ? null : err.stack,
+  });
+});
+// ERROR HANDLERS:---------------------------------------------------
 
 
 
