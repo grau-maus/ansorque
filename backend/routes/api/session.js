@@ -1,18 +1,41 @@
 // NPM PACKAGES
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check } = require('express-validator');
 
 // LOCAL IMPORTS
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
+const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
 
+
+
+// CUSTOM MIDDLEWARE:-------------------------------------------------------------
+const validateLogin = [
+  check('credential')
+    .exists({ checkFalsy: true })
+    .notEmpty()
+    .withMessage('Please provide a valid email or username.'),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please provide a password.'),
+  handleValidationErrors,
+];
+// CUSTOM MIDDLEWARE:-------------------------------------------------------------
+
+
+
+
+
 // SESSION ROUTES:----------------------------------------------------------------
+// Log in
 // Log in
 router.post(
   '/',
+  validateLogin,
   asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
 
@@ -102,6 +125,26 @@ router.get(
 //     "Content-Type": "application/json",
 //     "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
 //   }
+// }).then(res => res.json()).then(data => console.log(data));
+
+// USER LOGIN WITH NO CREDENTIALS:
+// fetch('/api/session', {
+//   method: 'POST',
+//   headers: {
+//     "Content-Type": "application/json",
+//     "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+//   },
+//   body: JSON.stringify({ credential: '', password: 'password' })
+// }).then(res => res.json()).then(data => console.log(data));
+
+// USER LOGIN WITH NO PASSWORD:
+// fetch('/api/session', {
+//   method: 'POST',
+//   headers: {
+//     "Content-Type": "application/json",
+//     "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+//   },
+//   body: JSON.stringify({ credential: 'Demo-lition', password: '' })
 // }).then(res => res.json()).then(data => console.log(data));
 // BROWSER CONSOLE CODE TO TEST ROUTE:--------------------------------------------
 
