@@ -12,15 +12,15 @@ router.use('/users', usersRouter);
 
 
 
-// // API TEST ROUTES:-------------------------------------------------------------------------
-// // ROUTE ACCEPTS REQUESTS WITH THE URL PATH OF '/api/test' WITH THE HTTP VERB OF 'POST'.
-// // SENDS JSON RESPONSE OF THE CONTENTS OF THE REQUEST BODY.
-// router.post('/test', function (req, res) {
-//   res.json({ requestBody: req.body })
-// });
+// API TEST ROUTES:-------------------------------------------------------------------------
+// ROUTE ACCEPTS REQUESTS WITH THE URL PATH OF '/api/test' WITH THE HTTP VERB OF 'POST'.
+// SENDS JSON RESPONSE OF THE CONTENTS OF THE REQUEST BODY.
+router.post('/test', function (req, res) {
+  res.json({ requestBody: req.body })
+});
 
 
-// // GET /api/set-token-cookie
+// GET /api/set-token-cookie
 // const asyncHandler = require('express-async-handler');
 // const { setTokenCookie } = require('../../utils/auth.js');
 // const { User } = require('../../db/models');
@@ -35,7 +35,7 @@ router.use('/users', usersRouter);
 // }));
 
 
-// // GET /api/restore-user
+// GET /api/restore-user
 // const { restoreUser } = require('../../utils/auth.js');
 // router.get(
 //   '/restore-user',
@@ -46,7 +46,7 @@ router.use('/users', usersRouter);
 // );
 
 
-// // GET /api/require-auth
+// GET /api/require-auth
 // const { requireAuth } = require('../../utils/auth.js');
 // router.get(
 //   '/require-auth',
@@ -55,7 +55,7 @@ router.use('/users', usersRouter);
 //     return res.json(req.user);
 //   }
 // );
-// // API TEST ROUTES:-------------------------------------------------------------------------
+// API TEST ROUTES:-------------------------------------------------------------------------
 
 
 
