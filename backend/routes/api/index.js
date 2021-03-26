@@ -15,9 +15,10 @@ router.use('/users', usersRouter);
 // API TEST ROUTES:-------------------------------------------------------------------------
 // ROUTE ACCEPTS REQUESTS WITH THE URL PATH OF '/api/test' WITH THE HTTP VERB OF 'POST'.
 // SENDS JSON RESPONSE OF THE CONTENTS OF THE REQUEST BODY.
-router.post('/test', function (req, res) {
-  res.json({ requestBody: req.body })
-});
+// ALSO USED FOR FRONTEND TESTING TO CHECK CSRF FUNCTIONALITY.
+// router.post('/test', function (req, res) {
+//   res.json({ requestBody: req.body })
+// });
 
 
 // GET /api/set-token-cookie
