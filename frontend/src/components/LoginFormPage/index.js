@@ -6,6 +6,7 @@ import { nanoid } from 'nanoid';
 
 // LOCAL IMPORTS
 import { login } from '../../store/session';
+import './LoginForm.css';
 
 
 
@@ -33,15 +34,18 @@ const LoginFormPage = () => {
   };
 
   return (
-    <section>
-      <h2>Login</h2>
+    <section className='login-form'>
+      <h2 className='login-form-header'>Login</h2>
       {errors &&
         errors.map((e) => {
           return (
             <div key={nanoid(5)}>{e}</div>
           );
         })}
-      <form onSubmit={handleSubmit}>
+      <form
+        className='login-form-container'
+        onSubmit={handleSubmit}
+      >
         <label htmlFor='credential'>Username / Email:</label>
         <input
           name='credential'
@@ -60,7 +64,10 @@ const LoginFormPage = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type='submit'>Login</button>
+        <button
+          className='login-form-container-button'
+          type='submit'
+        >Login</button>
       </form>
     </section>
   );

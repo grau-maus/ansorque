@@ -1,11 +1,13 @@
+import { Switch, Route } from 'react-router';
 import LoginFormPage from './components/LoginFormPage';
 
 function App() {
   return (
-    <>
-      <h1>BRB from App</h1>
-      <LoginFormPage />
-    </>
+    <Switch>
+      <Route exact path='/login'>
+        <LoginFormPage />
+      </Route>
+    </Switch>
   );
 }
 
