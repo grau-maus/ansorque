@@ -1,10 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-
+import session from './session';
 
 
 const rootReducer = combineReducers({
+  session
 });
 
 // 'enhancer' ONLY APPLIES 'thunk' MIDDLEWARE IN PRODUCTION ENVIRONMENT

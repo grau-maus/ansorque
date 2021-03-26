@@ -9,6 +9,7 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
+import * as sessionActions from './store/session';
 
 
 const store = configureStore();
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   window.csrfFetch = csrfFetch;
   window.store = store;
+  window.sessionActions = sessionActions;
 }
 
 function Root() {
@@ -39,9 +41,12 @@ ReactDOM.render(
 
 
 
-// RUN FOLLOWING CODE WITHIN FRONTEND BROWSER CONSOLE WINDOW
+// RUN FOLLOWING CODE WITHIN FRONTEND BROWSER CONSOLE WINDOW:-----------------------------------------------------------------------------------------
 // TESTING CUSTOM 'csrfFetch' WITH CSRF (SHOULD RECEIVE OBJECT WITH KEY OF 'requestBody' WITH VALUE AS OBJECT THAT WAS PASSED INTO THE REQUEST):
 // window.csrfFetch('/api/test', {
 //   method: 'POST',
 //   body: JSON.stringify({ credential: 'Demo-lition', password: 'password' })
 // }).then(res => res.json()).then(data => console.log(data));
+
+// TESTING 'sessionActions' FROM './store/session.js':
+// store.dispatch(sessionActions.'<insert action creator function with required arguments>');
