@@ -1,0 +1,31 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.nav-container-home {
+  font-size: 1.7em;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.nav-container-dropdown {
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-dropdown {
+  position: absolute;
+  margin-top: 70px;
+}
+
+/* DROPDOWN FONT */
+.fas.fa-bars {
+  font-size: 2em;
+  cursor: pointer;
+}
