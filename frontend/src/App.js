@@ -1,7 +1,11 @@
+// NPM PACKAGE IMPORTS
 import { Switch, Route } from 'react-router';
-import LoginFormPage from './components/LoginFormPage';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+
+// LOCAL IMPORTS
+import LoginFormPage from './components/LoginFormPage';
+import SignupFormPage from './components/SignupFormPage';
 import * as sessionActions from './store/session';
 
 function App() {
@@ -16,6 +20,9 @@ function App() {
     <Switch>
       <Route exact path='/login'>
         <LoginFormPage />
+      </Route>
+      <Route exact path='/signup'>
+        <SignupFormPage />
       </Route>
     </Switch>
   );

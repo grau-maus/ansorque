@@ -12,7 +12,7 @@ import './LoginForm.css';
 
 const LoginFormPage = () => {
   const dispatch = useDispatch();
-  let userState = useSelector((state) => state.session.user);
+  const userState = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
@@ -39,7 +39,10 @@ const LoginFormPage = () => {
       {errors &&
         errors.map((e) => {
           return (
-            <div key={nanoid(5)}>{e}</div>
+            <div
+              className='login-form-errors'
+              key={nanoid(5)}
+            >{e}</div>
           );
         })}
       <form
@@ -48,7 +51,7 @@ const LoginFormPage = () => {
       >
         <label htmlFor='credential'>Username / Email:</label>
         <input
-          name='credential'
+          id='credential'
           type='text'
           placeholder='username / email'
           required
@@ -57,7 +60,7 @@ const LoginFormPage = () => {
         />
         <label htmlFor='password'>Password:</label>
         <input
-          name='password'
+          id='password'
           type='password'
           placeholder='password'
           required
