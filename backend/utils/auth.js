@@ -61,9 +61,11 @@ const requireAuth = [
     if (req.user) return next();
 
     const err = new Error('Unauthorized');
+
     err.title = 'Unauthorized';
     err.errors = ['Unauthorized'];
     err.status = 401;
+
     return next(err);
   },
 ];
