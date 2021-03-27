@@ -51,6 +51,8 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.Question, { foreignKey: 'userId' });
+    User.hasMany(models.Answer, { foreignKey: 'userId' });
   };
 
 
@@ -103,5 +105,6 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope('currentUser').findByPk(user.id);
   };
   // CUSTOM STATIC METHODS:-----------------------------------------------------------
+
   return User;
 };
