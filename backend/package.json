@@ -28,6 +28,7 @@
     "morgan": "^1.10.0",
     "per-env": "^1.0.2",
     "pg": "^8.5.1",
+    "random-js": "^2.1.0",
     "random-question": "^0.2.1",
     "sequelize": "^5.22.4",
     "sequelize-cli": "^5.5.1"

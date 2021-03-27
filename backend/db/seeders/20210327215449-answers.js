@@ -1,4 +1,7 @@
 'use strict';
+const faker = require('faker');
+const { Random } = require('random-js');
+const random = new Random();
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -11,7 +14,18 @@ module.exports = {
         name: 'John Doe',
         isBetaMember: false
       }], {});
-    */
+      */
+    let answers = [];
+
+    for (let i = 0; i < 1500; i++) {
+      answers.push({
+        content: faker.lorem.sentence(),
+        userId: random.integer(1, 450),
+        questionId: random.integer(1, 498)
+      });
+    }
+
+    return queryInterface.bulkInsert('Answers', answers, {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -21,6 +35,7 @@ module.exports = {
 
       Example:
       return queryInterface.bulkDelete('People', null, {});
-    */
+      */
+    return queryInterface.bulkDelete('Answers', null, {});
   }
 };
