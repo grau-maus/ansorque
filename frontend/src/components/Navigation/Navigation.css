@@ -12,6 +12,10 @@
   padding: 20px;
 }
 
+.nav-container-home:hover {
+  font-weight: 700;
+}
+
 .nav-container-dropdown {
   width: 50px;
   display: flex;
@@ -20,12 +24,34 @@
 }
 
 .profile-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
-  margin-top: 70px;
+  margin-top: 75px;
+  list-style-type: none;
+}
+
+.profile-dropdown > li {
+  font-size: 1.1rem;
+}
+
+.profile-dropdown > li:hover {
+  font-weight: 600;
+}
+
+.profile-dropdown > li > button {
+  cursor: pointer;
+  font-size: 1.1rem;
 }
 
 /* DROPDOWN FONT */
 .fas.fa-bars {
   font-size: 2em;
   cursor: pointer;
+}
+
+/* DROPDOWN FONT */
+.fas.fa-bars:hover {
+  font-size: 2.5em;
 }
