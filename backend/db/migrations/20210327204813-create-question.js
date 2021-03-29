@@ -1,4 +1,7 @@
 'use strict';
+
+const { sequelize } = require("../models");
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Questions', {
@@ -7,6 +10,10 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      questionUrl: {
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       title: {
         type: Sequelize.STRING(300),

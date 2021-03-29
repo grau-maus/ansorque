@@ -77,9 +77,9 @@ const SignupFormPage = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor='password'>Password:</label>
+        <label htmlFor='password-signup'>Password:</label>
         <input
-          id='password'
+          id='password-signup'
           type='password'
           placeholder='password'
           required

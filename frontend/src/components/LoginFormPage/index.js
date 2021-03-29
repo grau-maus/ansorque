@@ -58,9 +58,9 @@ const LoginFormPage = () => {
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
         />
-        <label htmlFor='password'>Password:</label>
+        <label htmlFor='password-login'>Password:</label>
         <input
-          id='password'
+          id='password-login'
           type='password'
           placeholder='password'
           required
