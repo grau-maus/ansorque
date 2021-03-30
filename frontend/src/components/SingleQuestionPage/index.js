@@ -7,3 +7,11 @@ import { nanoid } from 'nanoid';
 // LOCAL IMPORTS
 import { login } from '../../store/session';
 import './SingleQuestion.css';
+
+
+
+export default function SingleQuestionPage() {
+  return (
+    <div>single QUESTION page</div>
+  );
+}

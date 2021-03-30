@@ -1,7 +1,7 @@
 // NPM PACKAGE IMPORTS
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { Redirect, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 // LOCAL IMPORTS
@@ -28,19 +28,31 @@ export default function SearchQuestionPage() {
     dispatch(searchQuestion(query));
   }, [dispatch, query]);
 
+  // navigate to the specific question with the associated 'questionUrl' property in the question object
+  const navToQuestion = (questionUrl) => {
+    return () => {
+      history.push(`/question/${questionUrl}`);
+    };
+  };
+
   // helper function to display the list of questions related to the query
   const listQuestions = () => {
     return (
-      <>
+      <div className='questions-list-questions-container'>
         {questionsList.map((question) => (
           <div
             key={`${question.id}-${nanoid(4)}`}
             className='questions-list-questions-div'
           >
+            <span
+              className='questions-list-title'
+              onClick={navToQuestion(question?.questionUrl)}
+            >
             {question.title}
+            </span>
           </div>
         ))}
-      </>
+      </div>
     );
   };
 
@@ -54,7 +66,7 @@ export default function SearchQuestionPage() {
   return (
     <div className='questions-list-container'>
       <div
-        className='questions-list-results-text'
+        className='questions-list-results-header'
       >
         <span
           className='questions-list-results-for'

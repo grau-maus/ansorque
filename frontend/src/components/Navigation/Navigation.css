@@ -1,4 +1,6 @@
 .nav-container {
+  top: 8px;
+  position: sticky;
   display: flex;
   flex-direction: row;
   justify-content: center;

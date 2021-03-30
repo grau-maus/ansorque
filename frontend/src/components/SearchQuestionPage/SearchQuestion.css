@@ -1,0 +1,47 @@
+.questions-list-container {
+  margin-top: 40px;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.questions-list-results-header {
+  height: 20px;
+  padding: 16px 8px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+}
+
+.questions-list-results-for {
+  font-size: 1.3rem;
+}
+
+.questions-list-results-query {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.questions-list-questions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.questions-list-questions-div {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  width: 600px;
+  height: 80px;
+}
+
+.questions-list-title {
+  cursor: pointer;
+}
+
+.questions-list-title:hover {
+  text-decoration: underline;
+}
