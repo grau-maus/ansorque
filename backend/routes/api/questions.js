@@ -2,8 +2,10 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
+const Sequelize = require('sequelize');
 
 // LOCAL IMPORTS
+const Op = Sequelize.Op;
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
 const { Question, Answer, User } = require('../../db/models');
 const { handleValidationErrors } = require('../../utils/validation');
@@ -23,6 +25,23 @@ router.get(
     return res.json({
       questions
     });
+  })
+);
+
+// ROUTE FOR HANDLING SEARCH QUERIES
+router.get(
+  '/:query',
+  asyncHandler(async (req, res) => {
+    const query = req.params.query;
+    const questions = await Question.findAll({
+      where: {
+        title: {
+          [Op.iLike]: `%${query}%`
+        }
+      }
+    });
+
+    return res.json({ questions });
   })
 );
 

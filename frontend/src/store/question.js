@@ -1,1 +1,0 @@
-import { csrfFetch } from './csrf'

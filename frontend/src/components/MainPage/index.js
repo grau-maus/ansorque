@@ -14,6 +14,7 @@ import './Main.css';
 
 const MainPage = () => {
   const dispatch = useDispatch();
+  const userState = useSelector((state) => state.session.user);
   const [questions, setQuestions] = useState([]);
 
   const fetchMoreData = () => {
@@ -24,7 +25,10 @@ const MainPage = () => {
 
   return (
     <>
-      <Unauthorized />
+      {userState &&
+        <div>welcome {JSON.stringify(userState)}</div>}
+      {!userState &&
+        <Unauthorized />}
     </>
   );
 };

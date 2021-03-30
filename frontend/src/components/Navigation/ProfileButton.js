@@ -48,38 +48,27 @@ function ProfileButton({ user }) {
     );
   };
 
-  const userLogIn = () => {
-    history.push('/login');
-  };
-
-  const userSignUp = () => {
-    history.push('/signup');
-  };
-
-  const loggedOutUser = () => {
-    return (
-      <ul className="profile-dropdown">
-        <li>
-          <button onClick={userLogIn}>Login</button>
-        </li>
-        <li>
-          <button onClick={userSignUp}>Sign up</button>
-        </li>
-      </ul>
-    );
+  const userSignIn = () => {
+    history.push('/');
   };
 
   return (
     <>
-      <div
+      {user && (<div
         className='nav-container-dropdown'
       >
         <i
           onClick={openMenu}
-          className="fas fa-bars"
+          className='fas fa-bars'
         ></i>
-      </div>
-      {user ? (showMenu ? loggedInUser() : null) : (showMenu ? loggedOutUser() : null)}
+      </div>)}
+      {showMenu ? loggedInUser() : null}
+      {!user && (
+        <button
+          className='nav-container-sign-in-button'
+          onClick={userSignIn}
+        >Sign In</button>
+      )}
     </>
   );
 }

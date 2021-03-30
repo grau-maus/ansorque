@@ -7,6 +7,8 @@ import { Switch, Route } from 'react-router';
 import MainPage from './components/MainPage';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
+import SingleQuestionPage from './components/SingleQuestionPage';
+import SearchQuestionPage from './components/SearchQuestionPage';
 import Navigation from './components/Navigation';
 import * as sessionActions from './store/session';
 
@@ -32,6 +34,14 @@ function App() {
           </Route>
           <Route exact path='/signup'>
             <SignupFormPage />
+          </Route>
+          <Route exact path='/questions/:query'>
+            {!userState && <Navigation isLoaded={isLoaded} />}
+            <SearchQuestionPage />
+          </Route>
+          <Route>
+            {!userState && <Navigation isLoaded={isLoaded} />}
+            <p>Page not found</p>
           </Route>
         </Switch>
       )}

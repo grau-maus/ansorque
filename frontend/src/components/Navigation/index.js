@@ -1,7 +1,7 @@
 // NPM PACKAGE IMPORTS
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 // LOCAL IMPORTS
 import ProfileButton from './ProfileButton';
@@ -10,7 +10,10 @@ import './Navigation.css';
 
 
 function Navigation({ isLoaded }) {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
+  const [search, setSearch] = useState('');
 
   let sessionLinks;
 
@@ -24,13 +27,29 @@ function Navigation({ isLoaded }) {
     );
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    history.push(`/questions/${search}`);
+  };
+
   return (
     <div className='nav-container'>
       <NavLink exact to="/"
         className='nav-container-home'
       >
-        Home
+        Anorq
       </NavLink>
+      <form
+        className='nav-container-search-bar'
+        onSubmit={handleSubmit}
+      >
+        <input
+          type='text'
+          placeholder='Search for questions'
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </form>
       {isLoaded && sessionLinks}
     </div>
   );
