@@ -17,7 +17,7 @@ module.exports = {
       */
     let answers = [];
 
-    for (let i = 0; i < 1500; i++) {
+    for (let i = 0; i < 5; i++) {
       const randomContent = random.integer(0, 1) ? txtgen.sentence() : txtgen.paragraph();
 
       answers.push({
