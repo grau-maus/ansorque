@@ -22,8 +22,8 @@ module.exports = {
 
       answers.push({
         content: randomContent,
-        userId: random.integer(1, 450),
-        questionId: random.integer(1, 498)
+        userId: random.integer(1, 4),
+        questionId: random.integer(1, 4)
       });
     }
 

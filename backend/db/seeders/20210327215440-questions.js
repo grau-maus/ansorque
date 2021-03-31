@@ -23,7 +23,7 @@ module.exports = {
       questions.push({
         questionUrl: nanoid(),
         title: randomQuestion.randomQuestion(),
-        userId: random.integer(1, 450)
+        userId: random.integer(1, 4)
       });
     }
 
