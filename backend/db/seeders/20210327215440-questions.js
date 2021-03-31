@@ -19,7 +19,7 @@ module.exports = {
 
     let questions = [];
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 500; i++) {
       questions.push({
         questionUrl: nanoid(),
         title: randomQuestion.randomQuestion(),
