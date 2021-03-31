@@ -28,7 +28,7 @@ function Navigation({ isLoaded }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    setSearch('');
     history.push(`/questions/${search}`);
   };
 
@@ -46,6 +46,7 @@ function Navigation({ isLoaded }) {
         <input
           type='text'
           placeholder='Search for questions'
+          value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
       </form>

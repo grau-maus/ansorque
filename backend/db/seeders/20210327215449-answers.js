@@ -18,8 +18,10 @@ module.exports = {
     let answers = [];
 
     for (let i = 0; i < 1500; i++) {
+      const randomContent = random.integer(0, 1) ? txtgen.sentence() : txtgen.paragraph();
+
       answers.push({
-        content: random.integer(0, 1) ? txtgen.sentence() : txtgen.paragraph(),
+        content: randomContent,
         userId: random.integer(1, 450),
         questionId: random.integer(1, 498)
       });
