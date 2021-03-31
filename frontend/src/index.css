@@ -1,6 +1,9 @@
-/* body {
-  background-color: #0F4C5C;
-} */
+body {
+  /* display: flex;
+  align-items: baseline;
+  justify-content: center;
+  height: 100vh; */
+}
 
 a {
   color: #00B7FF;

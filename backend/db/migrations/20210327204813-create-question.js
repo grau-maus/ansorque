@@ -19,10 +19,6 @@ module.exports = {
         type: Sequelize.STRING(300),
         allowNull: false
       },
-      content: {
-        type: Sequelize.TEXT(40000),
-        allowNull: false
-      },
       userId: {
         type: Sequelize.INTEGER,
         references: { model: 'Users' }

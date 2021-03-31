@@ -12,13 +12,6 @@ module.exports = (sequelize, DataTypes) => {
         len: [4, 300]
       }
     },
-    content: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        len: [3, 40000]
-      }
-    },
     userId: DataTypes.INTEGER
   }, {});
 

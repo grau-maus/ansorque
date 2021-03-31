@@ -1,5 +1,4 @@
 'use strict';
-const faker = require('faker');
 const { nanoid } = require('nanoid');
 const randomQuestion = require('random-question');
 const { Random } = require('random-js');
@@ -24,7 +23,6 @@ module.exports = {
       questions.push({
         questionUrl: nanoid(),
         title: randomQuestion.randomQuestion(),
-        content: faker.lorem.paragraph(),
         userId: random.integer(1, 450)
       });
     }
