@@ -1,7 +1,7 @@
 // NPM PACKAGE IMPORTS
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // LOCAL IMPORTS
 import ProfileButton from './ProfileButton';
@@ -10,7 +10,6 @@ import './Navigation.css';
 
 
 function Navigation({ isLoaded }) {
-  const dispatch = useDispatch();
   const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const [search, setSearch] = useState('');

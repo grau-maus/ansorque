@@ -17,11 +17,11 @@ const MainPage = () => {
   const userState = useSelector((state) => state.session.user);
   const [questions, setQuestions] = useState([]);
 
-  const fetchMoreData = () => {
-    setTimeout(async () => {
+  // const fetchMoreData = () => {
+  //   setTimeout(async () => {
 
-    }, 1500);
-  };
+  //   }, 1500);
+  // };
 
   return (
     <>

@@ -1,5 +1,5 @@
 'use strict';
-const faker = require('faker');
+const txtgen = require('txtgen');
 const { Random } = require('random-js');
 const random = new Random();
 
@@ -19,7 +19,7 @@ module.exports = {
 
     for (let i = 0; i < 1500; i++) {
       answers.push({
-        content: faker.lorem.sentence(),
+        content: random.integer(0, 1) ? txtgen.sentence() : txtgen.paragraph(),
         userId: random.integer(1, 450),
         questionId: random.integer(1, 498)
       });

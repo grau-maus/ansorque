@@ -45,7 +45,28 @@ router.get(
   })
 );
 
+// ROUTE FOR HANDLING SINGLE QUESTION PAGE
+router.get(
+  '/single/:questionUrl',
+  asyncHandler(async (req, res) => {
+    const questionUrl = req.params.questionUrl;
+    let question = await Question.findOne({
+      where: {
+        questionUrl
+      },
+      include: [User, {
+        model: Answer,
+        include: [User]
+      }]
+    });
 
+    if (!question) {
+      return res.json({ question: 'error' });
+    } else {
+      return res.json({ question });
+    }
+  })
+);
 
 
 

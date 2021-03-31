@@ -35,6 +35,10 @@ function App() {
           <Route exact path='/signup'>
             <SignupFormPage />
           </Route>
+          <Route exact path='/question/:url'>
+            {!userState && <Navigation isLoaded={isLoaded} />}
+            <SingleQuestionPage />
+          </Route>
           <Route exact path='/questions/:query'>
             {!userState && <Navigation isLoaded={isLoaded} />}
             <SearchQuestionPage />

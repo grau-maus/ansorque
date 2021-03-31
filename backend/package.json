@@ -32,7 +32,8 @@
     "random-js": "^2.1.0",
     "random-question": "^0.2.1",
     "sequelize": "^5.22.4",
-    "sequelize-cli": "^5.5.1"
+    "sequelize-cli": "^5.5.1",
+    "txtgen": "^2.2.8"
   },
   "devDependencies": {
     "dotenv-cli": "^4.0.0",

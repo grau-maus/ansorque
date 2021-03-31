@@ -1,6 +1,7 @@
 import { csrfFetch } from './csrf'
 
 const GET_QUESTIONS = 'questions/getQuestions';
+const GET_ONE_QUESTION = 'questions/getOneQuestion';
 
 
 
@@ -11,6 +12,15 @@ const getQuestions = (questions) => {
   };
 };
 
+const getOneQuestion = (question) => {
+  return {
+    type: GET_ONE_QUESTION,
+    payload: question
+  };
+};
+
+
+
 export const searchQuestion = (query) => async (dispatch) => {
   const response = await csrfFetch(`/api/questions/${query}`);
   const data = await response.json();
@@ -19,6 +29,17 @@ export const searchQuestion = (query) => async (dispatch) => {
 
   return response;
 };
+
+export const singleQuestion = (questionUrl) => async (dispatch) => {
+  const response = await csrfFetch(`/api/questions/single/${questionUrl}`);
+  const data = await response.json();
+
+  dispatch(getOneQuestion(data.question));
+
+  return response;
+};
+
+
 
 // initial state with a property of 'questionsList'
 // just so we don't key into object like so:
@@ -37,6 +58,12 @@ const questionsReducer = (state = initialState, action) => {
     case GET_QUESTIONS:
       newState = {};
       newState.questionsList = action.payload;
+
+      return newState;
+
+    case GET_ONE_QUESTION:
+      newState = Object.assign({}, state);
+      newState.mainQuestion = action.payload;
 
       return newState;
 

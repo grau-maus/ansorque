@@ -1,6 +1,6 @@
 // NPM PACKAGE IMPORTS
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
