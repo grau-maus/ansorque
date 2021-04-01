@@ -11,6 +11,7 @@ import SingleQuestionPage from './components/SingleQuestionPage';
 import SearchQuestionPage from './components/SearchQuestionPage';
 import Navigation from './components/Navigation';
 import * as sessionActions from './store/session';
+import * as questionsActions from './store/questions';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function App() {
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+    dispatch(questionsActions.getAllQuestions());
   }, [dispatch]);
 
   return (

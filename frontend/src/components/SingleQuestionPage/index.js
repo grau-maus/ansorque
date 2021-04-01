@@ -14,21 +14,11 @@ import './SingleQuestion.css';
 export default function SingleQuestionPage() {
   const dispatch = useDispatch();
   const { url } = useParams();
-  const mainQuestion = useSelector((state) => state.questions.mainQuestion);
-
-  useEffect(() => {
-    dispatch(singleQuestion(url));
-  }, [dispatch, url]);
-
-  // console.log(mainQuestion);
-
-  if (mainQuestion === 'error') {
-    return (
-      <Redirect to='/404' />
-    )
-  }
-
+  const allQuestions = useSelector((state) => state.questions.allQuestions);
+  const regExQuery = new RegExp(url);
+  const mainQuestion = allQuestions?.filter((question) => question.questionUrl.search(regExQuery) > -1)[0];
   const answerList = mainQuestion?.Answers;
+
 
   const listQuestion = () => {
     return (
@@ -55,7 +45,7 @@ export default function SingleQuestionPage() {
         <div className='single-question-page-header-title'>{mainQuestion?.title}</div>
         <div className='single-question-page-header-num-answer'>
           <i className="far fa-comment-dots"></i>
-          {` ${mainQuestion?.Answers.length}`} Answers
+          {` ${mainQuestion?.Answers?.length}`} Answers
         </div>
       </div>
       <div className='single-question-page-answers'>

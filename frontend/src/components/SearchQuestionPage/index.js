@@ -14,19 +14,14 @@ export default function SearchQuestionPage() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // get the list / array of questions relating to the query from 'useEffect' function
-  const questionsList = useSelector((state) => state.questions.questionsList);
+  // get the list / array of questions from the current 'questions' state
+  const allQuestions = useSelector((state) => state.questions.allQuestions);
 
   // get the ':query' from the url
   // see '/src/App.js' for the url path
   const { query } = useParams();
-
-
-  // useEffect function to run the searchQuestion function ONCE when component renders
-  // will run again if it detects a change with 'query'
-  useEffect(() => {
-    dispatch(searchQuestion(query));
-  }, [dispatch, query]);
+  const regExQuery = new RegExp(query);
+  const questionsList = allQuestions?.filter((question) => question.title.search(regExQuery) > -1);
 
   // navigate to the specific question with the associated 'questionUrl' property in the question object
   const navToQuestion = (questionUrl) => {
