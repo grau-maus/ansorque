@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 // LOCAL IMPORTS
-import { login } from '../../store/session';
+import { login, demoLogin } from '../../store/session';
 import './LoginForm.css';
 
 
@@ -70,8 +70,15 @@ const LoginFormPage = () => {
         <button
           className='login-form-container-button'
           type='submit'
-        >Login</button>
+        >
+          Login</button>
       </form>
+      <button
+        className='login-form-container-demo'
+        onClick={() => dispatch(demoLogin())}
+      >
+        Demo Login
+        </button>
     </section>
   );
 };

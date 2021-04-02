@@ -58,8 +58,11 @@
   cursor: pointer;
   font-weight: 750;
   border-radius: 30px;
+  background-color: transparent;
+  border: 2px solid black;
 }
 
 .signup-form-container-button:hover {
-  background-color: lightgray;
+  border: 3px solid black;
+  text-decoration: underline;
 }
