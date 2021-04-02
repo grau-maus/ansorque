@@ -1,11 +1,11 @@
 // NPM PACKAGE IMPORTS
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 
 // LOCAL IMPORTS
-import { searchQuestion } from '../../store/questions';
+import { queryQuestion, clearQueryResults } from '../../store/questions';
 import './SearchQuestion.css';
 
 
@@ -13,17 +13,23 @@ import './SearchQuestion.css';
 export default function SearchQuestionPage() {
   const dispatch = useDispatch();
   const history = useHistory();
-
-  // get the list / array of questions from the current 'questions' state
-  const allQuestions = useSelector((state) => state.questions.allQuestions);
-
-  // get the ':query' from the url
-  // see '/src/App.js' for the url path
+  const questionsState = useSelector((state) => state.questions);
+  const { noResults, searchResults } = questionsState;
   const { query } = useParams();
-  const regExQuery = new RegExp(query);
-  const questionsList = allQuestions?.filter((question) => question.title.search(regExQuery) > -1);
+  const [questionsList, setQuestionsList] = useState([]);
 
-  // navigate to the specific question with the associated 'questionUrl' property in the question object
+  useEffect(() => {
+    dispatch(clearQueryResults());
+    setQuestionsList([]);
+    dispatch(queryQuestion(query));
+  }, [query]);
+
+  useEffect(() => {
+    if (!noResults) {
+      setQuestionsList([...questionsList, ...searchResults]);
+    }
+  }, [questionsState]);
+
   const navToQuestion = (questionUrl) => {
     return () => {
       history.push(`/question/${questionUrl}`);
@@ -58,6 +64,20 @@ export default function SearchQuestionPage() {
     );
   };
 
+  const noMoreResults = () => {
+    if (searchResults.length < 1) {
+      return null;
+    }
+
+    return (
+      <p>That's all the results for '{query}'!</p>
+    );
+  };
+
+  function nextPage () {
+    dispatch(queryQuestion(query, questionsList.length));
+  };
+
   return (
     <div className='questions-list-container'>
       <div
@@ -74,7 +94,8 @@ export default function SearchQuestionPage() {
           {query}
         </span>
       </div>
-      {questionsList?.length ? listQuestions() : noQuestions()}
+      {searchResults?.length > 1 ? listQuestions() : noQuestions()}
+      {!noResults ? (<button className='questions-list-more' onClick={nextPage}>More</button>) : noMoreResults()}
     </div>
   );
 }

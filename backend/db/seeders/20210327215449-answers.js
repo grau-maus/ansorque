@@ -17,13 +17,13 @@ module.exports = {
       */
     let answers = [];
 
-    for (let i = 0; i < 1500; i++) {
+    for (let i = 0; i < 200000; i++) {
       const randomContent = random.integer(0, 1) ? txtgen.sentence() : txtgen.paragraph();
 
       answers.push({
         content: randomContent,
-        userId: random.integer(1, 98),
-        questionId: random.integer(1, 490)
+        userId: random.integer(1, 99),
+        questionId: random.integer(1, 50000)
       });
     }
 

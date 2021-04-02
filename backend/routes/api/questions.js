@@ -22,17 +22,128 @@ router.get(
       include: [User, {
         model: Answer,
         include: [User]
-      }]
+      }],
+      where: {
+        id: {
+          [Op.between]: [1, 100]
+        }
+      }
     });
 
-    return res.json({
-      questions
-    });
+    if (questions.length < 1) {
+      questions = ['no results'];
+
+      return res.json({
+        questions
+      });
+    } else {
+      return res.json({
+        questions
+      });
+    }
   })
 );
 
+router.get(
+  '/:nextPage',
+  asyncHandler(async (req, res, next) => {
+    try {
+      const nextPage = parseInt(req.params.nextPage, 10);
+      const questions = await Question.findAll({
+        include: [User, {
+          model: Answer,
+          include: [User]
+        }],
+        where: {
+          id: {
+            [Op.between]: [nextPage + 1, nextPage + 100]
+          }
+        }
+      });
 
+      if (questions.length < 1) {
+        questions = ['no results'];
 
+        return res.json({
+          questions
+        });
+      } else {
+        return res.json({
+          questions
+        });
+      }
+    } catch (e) {
+
+      next(e);
+    }
+  })
+);
+
+router.get(
+  '/search/:query',
+  asyncHandler(async (req, res) => {
+    const query = req.params.query;
+    let questions = await Question.findAll({
+      include: [User, {
+        model: Answer,
+        include: [User]
+      }],
+      where: {
+        title: {
+          [Op.iLike]: `%${query}%`
+        }
+      },
+      limit: 100
+    });
+
+    if (questions.length < 1) {
+      questions = ['no results'];
+
+      return res.json({
+        questions
+      });
+    } else {
+      return res.json({
+        questions
+      });
+    }
+  })
+);
+
+router.get(
+  '/search/:query/:nextPage',
+  asyncHandler(async (req, res) => {
+    const query = req.params.query;
+    const nextPage = parseInt(req.params.nextPage, 10);
+    let questions = await Question.findAll({
+      include: [User, {
+        model: Answer,
+        include: [User]
+      }],
+      where: {
+        title: {
+          [Op.iLike]: `%${query}%`
+        },
+        id: {
+          [Op.between]: [nextPage + 1, nextPage + 100]
+        }
+      },
+      limit: 100
+    });
+
+    if (questions.length < 1) {
+      questions = ['no results'];
+
+      return res.json({
+        questions
+      });
+    } else {
+      return res.json({
+        questions
+      });
+    }
+  })
+);
 
 
 

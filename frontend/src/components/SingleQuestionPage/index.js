@@ -1,12 +1,11 @@
 // NPM PACKAGE IMPORTS
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import dateFormat from 'dateformat';
 
 // LOCAL IMPORTS
-import { singleQuestion } from '../../store/questions';
 import './SingleQuestion.css';
 
 
@@ -14,7 +13,7 @@ import './SingleQuestion.css';
 export default function SingleQuestionPage() {
   const dispatch = useDispatch();
   const { url } = useParams();
-  const allQuestions = useSelector((state) => state.questions.allQuestions);
+  const allQuestions = useSelector((state) => state.questions.searchResults);
   const regExQuery = new RegExp(url);
   const mainQuestion = allQuestions?.filter((question) => question.questionUrl.search(regExQuery) > -1)[0];
   const answerList = mainQuestion?.Answers;
