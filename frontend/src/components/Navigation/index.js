@@ -37,7 +37,7 @@ function Navigation({ isLoaded }) {
       <NavLink exact to="/"
         className='nav-container-home'
       >
-        Anorq
+        Ansorque
       </NavLink>
       <form
         className='nav-container-search-bar'
@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
       >
         <input
           type='text'
-          placeholder='Search for questions'
+          placeholder=' Search Anorq'
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />

@@ -85,6 +85,7 @@ export const clearQueryResults = () => async (dispatch) => {
 // "state.questions.questions", just to display a list of questions
 const initialState = {
   allQuestions: [],
+  getMoreQuestions: [],
   searchResults: [],
   noResults: false
 };
@@ -108,6 +109,7 @@ const questionsReducer = (state = initialState, action) => {
         newState.noResults = true;
       } else {
         newState.allQuestions.push(...action.payload);
+        newState.getMoreQuestions = action.payload;
         newState.noResults = false;
       }
 

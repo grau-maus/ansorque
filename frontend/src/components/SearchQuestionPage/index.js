@@ -22,7 +22,7 @@ export default function SearchQuestionPage() {
     dispatch(clearQueryResults());
     setQuestionsList([]);
     dispatch(queryQuestion(query));
-  }, [query]);
+  }, [query, dispatch]);
 
   useEffect(() => {
     if (!noResults) {

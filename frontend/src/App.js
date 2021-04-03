@@ -10,6 +10,7 @@ import SignupFormPage from './components/SignupFormPage';
 import SingleQuestionPage from './components/SingleQuestionPage';
 import SearchQuestionPage from './components/SearchQuestionPage';
 import Navigation from './components/Navigation';
+import PostQuestionPage from './components/PostQuestionPage';
 import * as sessionActions from './store/session';
 import * as questionsActions from './store/questions';
 
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route exact path='/signup'>
             <SignupFormPage />
+          </Route>
+          <Route exact path='/post/question'>
+            <PostQuestionPage />
           </Route>
           <Route exact path='/question/:url'>
             {!userState && <Navigation isLoaded={isLoaded} />}

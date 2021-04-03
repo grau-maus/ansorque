@@ -17,7 +17,7 @@ module.exports = {
 
     let fakeUsers = [];
 
-    for (let i = 0; i < 99; i++) {
+    for (let i = 0; i < 49; i++) {
       fakeUsers.push({
         email: faker.internet.email(),
         username: faker.internet.userName(),
