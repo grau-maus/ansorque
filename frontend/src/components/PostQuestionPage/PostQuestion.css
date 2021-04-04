@@ -4,17 +4,19 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  background-color: rgb(235, 235, 235);
+  height: 90vh;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .p-q-p-f {
   border: 1px solid black;
-  width: 400px;
+  width: 600px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  background-color: white;
 }
 
 .p-q-p-h {
@@ -30,4 +32,32 @@
 
 .p-q-p-h > p {
   font-size: 1.4rem;
+}
+
+.p-q-p-f > input {
+  height: 30px;
+  width: 400px;
+  padding-left: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 30px;
+}
+
+.p-q-b-c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.p-q-p-c {
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.p-q-b-c > button {
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+  height: 40px;
 }

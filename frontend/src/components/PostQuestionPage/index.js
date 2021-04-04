@@ -37,13 +37,15 @@ export default function PostQuestionPage() {
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
-        <div
-          className='p-q-p-c'
-          onClick={goBack}
-        >Cancel</div>
-        <button
-          type='submit'
-        >Add Question</button>
+        <div className='p-q-b-c'>
+          <div
+            className='p-q-p-c'
+            onClick={goBack}
+          >Cancel</div>
+          <button
+            type='submit'
+          >Add Question</button>
+        </div>
       </form>
     </section>
   );
