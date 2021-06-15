@@ -14,6 +14,8 @@ import PostQuestionPage from './components/PostQuestionPage';
 import * as sessionActions from './store/session';
 import * as questionsActions from './store/questions';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   const dispatch = useDispatch();
   const userState = useSelector((state) => state.session.user);

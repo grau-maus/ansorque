@@ -90,7 +90,7 @@ const SignupFormPage = () => {
         <input
           id='confirmPassword'
           type='password'
-          placeholder='confirmPassword'
+          placeholder='confirm password'
           required
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}

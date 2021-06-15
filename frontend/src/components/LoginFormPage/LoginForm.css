@@ -31,8 +31,12 @@
   font-weight: 600;
 }
 
+#credential {
+  margin-bottom: 10px;
+}
+
 .login-form-container > input {
-  height: 30px;
+  height: 35px;
   border: 2px solid black;
   padding: 5px;
   border-radius: 5px;
@@ -62,7 +66,7 @@
 
 .login-form-container-demo {
   margin-top: 20px;
-  width: 80px;
+  width: 130px;
   height: 40px;
   align-self: flex-end;
   cursor: pointer;

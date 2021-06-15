@@ -34,10 +34,16 @@
 }
 
 .signup-form-container > input {
-  height: 30px;
+  height: 35px;
   border: 2px solid black;
   padding: 5px;
   border-radius: 5px;
+}
+
+#username,
+#email,
+#password-signup {
+  margin-bottom: 10px;
 }
 
 .signup-form-container > input:hover {
