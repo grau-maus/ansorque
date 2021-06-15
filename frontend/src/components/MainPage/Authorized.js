@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 
 // LOCAL IMPORTS
 import { addMoreQuestions } from '../../store/questions';
+import QuestionModal from '../PostQuestionPage/QuestionModal';
 import { randomIcon } from '../../utils';
 
 
@@ -71,12 +72,12 @@ export default function Authorized() {
 
   return (
     <div className='a-m-p'>
-      <div className='a-m-p-h' onClick={postQuestion}>
+      <div className='a-m-p-h'>
         <div className='a-m-p-p'>
           {randomIcon()}
           <p>{user.username}</p>
         </div>
-        <p>What's your question?</p>
+        <QuestionModal />
       </div>
       {listQuestions()}
       <button className='a-m-p-b' onClick={nextPage}>More</button>
