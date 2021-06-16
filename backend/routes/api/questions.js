@@ -145,7 +145,11 @@ router.get(
   })
 );
 
-
+router.post(
+  '/api/questions/',
+  asyncHandler(async (req, res) => {
+    return;
+  }));
 
 
 

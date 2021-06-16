@@ -1,9 +1,8 @@
 import { csrfFetch } from './csrf';
 
-
-
 const GET_QUESTIONS = 'questions/getQuestions';
 const GET_MORE_QUESTIONS = 'questions/getMoreQuestions';
+const POST_QUESTION = 'questions/postQuestion';
 const FIND_QUESTIONS = 'questions/findQuestions';
 const CLEAR_QUERY = 'questions/clearQuery';
 
@@ -20,6 +19,13 @@ const getMoreQuestions = (questions) => {
   return {
     type: GET_MORE_QUESTIONS,
     payload: questions
+  };
+};
+
+const postQuestion = (question) => {
+  return {
+    type: POST_QUESTION,
+    payload: question
   };
 };
 
@@ -52,6 +58,22 @@ export const addMoreQuestions = (currentLength) => async (dispatch) => {
   const data = await response.json();
 
   dispatch(getMoreQuestions(data.questions));
+
+  return response;
+};
+
+export const postAQuestion = (content) => async (dispatch) => {
+  const response = await csrfFetch('/api/questions/', {
+    method: 'POST',
+    body: JSON.stringify({
+      content
+    })
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(postQuestion(data));
+  }
 
   return response;
 };

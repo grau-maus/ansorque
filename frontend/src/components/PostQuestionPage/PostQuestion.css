@@ -71,3 +71,12 @@
   border-radius: 30px;
   height: 40px;
 }
+
+#q-m-h button {
+  border: none;
+  background-color: transparent;
+}
+
+#q-m-h button:hover {
+  background-color: rgba(128, 128, 128, 0.616);
+}

@@ -23,28 +23,21 @@ export default function QuestionModal() {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
+        <Modal.Header closeButton id="q-m-h">
           <Modal.Title>Ask a question!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-                We'll never share your email with anyone else.
-              </Form.Text>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
+            <Form.Group className="mb-3" controlId="formQuestion">
+              <Form.Control
+                required
+                minlength='4'
+                maxlength='300'
+                as="textarea"
+                placeholder="e.g: Why do people walk? How do magnets work?" />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Post question
             </Button>
           </Form>
         </Modal.Body>
@@ -52,7 +45,6 @@ export default function QuestionModal() {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary">Post question</Button>
         </Modal.Footer>
       </Modal>
     </>
