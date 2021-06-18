@@ -1,15 +1,25 @@
 // NPM IMPORTS
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Button, Modal, Form } from "react-bootstrap";
 
 // LOCAL IMPORTS
+import { postAQuestion } from "../../store/questions";
 import "./PostQuestion.css";
 
 export default function QuestionModal() {
+  const dispatch = useDispatch();
   const [show, setShow] = useState(false);
+  const [content, setContent] = useState('');
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(postAQuestion(content));
+    setContent('');
+    handleClose();
+  };
 
   return (
     <>
@@ -27,12 +37,14 @@ export default function QuestionModal() {
           <Modal.Title>Ask a question!</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formQuestion">
               <Form.Control
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
                 required
-                minlength='4'
-                maxlength='300'
+                minLength='4'
+                maxLength='300'
                 as="textarea"
                 placeholder="e.g: Why do people walk? How do magnets work?" />
             </Form.Group>

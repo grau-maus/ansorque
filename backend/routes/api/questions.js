@@ -1,5 +1,6 @@
 // NPM PACKAGES
 const express = require('express');
+const { nanoid } = require('nanoid');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const Sequelize = require('sequelize');
@@ -145,10 +146,23 @@ router.get(
   })
 );
 
+// requireAuth validation to parse request and be able
+// to access current logged in user via req.user
+// available attributes: [id, username, email, createdAt, updatedAt]
 router.post(
-  '/api/questions/',
-  asyncHandler(async (req, res) => {
-    return;
+  '/',
+  requireAuth,
+  asyncHandler(async (req, res, next) => {
+    const { content } = req.body;
+    const question = await Question.create({
+      questionUrl: nanoid(),
+      title: content,
+      userId: req.user.id
+    });
+
+    return res.json({
+      question
+    });
   }));
 
 

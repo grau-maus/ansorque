@@ -72,7 +72,7 @@ export const postAQuestion = (content) => async (dispatch) => {
 
   if (response.ok) {
     const data = await response.json();
-    dispatch(postQuestion(data));
+    dispatch(postQuestion(data.question));
   }
 
   return response;
@@ -134,6 +134,12 @@ const questionsReducer = (state = initialState, action) => {
         newState.getMoreQuestions = action.payload;
         newState.noResults = false;
       }
+
+      return newState;
+
+    case POST_QUESTION:
+      newState = Object.assign({}, state);
+      newState.allQuestions.unshift(action.payload);
 
       return newState;
 
