@@ -54,29 +54,28 @@ Our visitors can log-in with our "Demo Log in" to be able to try out sites full 
 
 After signing in or loging in you will be brought to this page...
 
-To Our Most recent Activity Page:
+To the Most recent Activity Page:
 
 <a href="https://ibb.co/tHnKRmC"><img src="https://i.ibb.co/kGzBZHc/Screen-Shot-2021-06-21-at-11-26-28-PM.png" alt="Screen-Shot-2021-06-21-at-11-26-28-PM" border="0"></a>
 
-
-
-
+On this page you can as a user you can post a question and also see the most recently answer question, in which you if the question fascinates you can click on that question and a post an answer of your own. 
 
 <a href="https://ibb.co/xX2FkTr"><img src="https://i.ibb.co/vVcXFnM/Screen-Shot-2021-06-21-at-11-40-07-PM.png" alt="Screen-Shot-2021-06-21-at-11-40-07-PM" border="0"></a> 
 
+As you browse you can press "more" to see more answered questions.
 
-
-### Searching Result Page
-
-
-<a href="https://ibb.co/Yc0L9pW"><img src="https://i.ibb.co/qNJrGkn/Screen-Shot-2021-06-21-at-11-35-12-PM.png" alt="Screen-Shot-2021-06-21-at-11-35-12-PM" border="0"></a>
-
+### clicking on one of those questions... Brings you to this page:
 
 ## Question and Answer Page
 <a href="https://ibb.co/qFsGk4c"><img src="https://i.ibb.co/VpSy2hz/Screen-Shot-2021-06-21-at-11-28-46-PM.png" alt="Screen-Shot-2021-06-21-at-11-28-46-PM" border="0"></a>
 
+This is where you can see other answer to the question selected and navigated to. This is the page where you can also post your own answer to the question. 
 
+## Searching Result Page
 
+<a href="https://ibb.co/Yc0L9pW"><img src="https://i.ibb.co/qNJrGkn/Screen-Shot-2021-06-21-at-11-35-12-PM.png" alt="Screen-Shot-2021-06-21-at-11-35-12-PM" border="0"></a>
+
+This is is seen when you put a search word or letter on the search bar and all the corresponding thread question will be seen based on the entered word/letters. 
 
 
 # Having a copy of the Project on your own Local Machines
@@ -157,7 +156,7 @@ No special instructions, the Application is fully functional!
 
 #### Back end
 
-The backend of the application was build using postgreSQL and Sequelize for the database. Using Express.js web framework for routes, and RESTful Apis.
+The backend of the application was build using PostgreSQL for my relational database and to manage my data. I used Sequelize to interact with PostgreSQL. Using Express.js web framework for routes, and RESTful Apis. Together they provide a back-end API service to the Front-end server.
 
 #### Front end
 
@@ -173,11 +172,16 @@ Ansorque uses:
 - [Morgan](https://github.com/expressjs/morgan) for the http logger middleware for node.js
 - [http-errors](https://github.com/jshttp/http-errors) create errors and be able to display them with ease
 - [cookie-parser](https://github.com/js-cookie/js-cookie) for cookie parsing in use of cookie storage
-- [Sequelize](https://github.com/sequelize/sequelize) 
+- [Sequelize](https://github.com/sequelize/sequelize) for interacting with the SQL database. 
 - [Faker](https://www.npmjs.com/package/faker) for some seeder data
 
 # Challenges
 
+`code snippet of the challenge` 
+
+//How you solved the challenge
+
+//link the files where the solution occurred from your actual repo. 
 
 # Future Features 
 
@@ -185,6 +189,7 @@ Ansorque uses:
 -  Implement a more efficient / direct search using regular expressions and be able to search for answer as well.
 - Polymophic Up/Down Votes: For Questions, Answers, Comments.
 - A robust and detailed User Page.
+- Change the "more" Botton feature on the main page to infinite scrolling.
 
 ### Creators/Project
 
@@ -192,6 +197,7 @@ This project was created with-in a week, in the span of March 25th to April 1st 
 
 This project was develop by the following Dev:
 [Josh Tupas](https://github.com/grau-maus)
+
 
 
 
