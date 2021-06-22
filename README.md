@@ -73,7 +73,7 @@ To Our Most recent Activity Page:
 
 
 ## Question and Answer Page
-<a href="https://ibb.co/qFsGk4c"><img src="https://i.ibb.co/VpSy2hz/Screen-Shot-2021-06-21-at-11-28-46-PM.png" alt="Screen-Shot-2021-06-21-at-11-28-46-PM" border="0"></a><br /><a target='_blank' href='https://imgbb.com/'>free upload pic</a><br />
+<a href="https://ibb.co/qFsGk4c"><img src="https://i.ibb.co/VpSy2hz/Screen-Shot-2021-06-21-at-11-28-46-PM.png" alt="Screen-Shot-2021-06-21-at-11-28-46-PM" border="0"></a>
 
 
 
