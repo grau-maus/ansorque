@@ -157,7 +157,7 @@ No special instructions, the Application is fully functional!
 
 #### Back end
 
-The app was built using  on the back end with a postgreSQL for the database. Using Express.js web framework for routes, and  RESTful Apis.
+The backend of the application was build using postgreSQL and Sequelize for the database. Using Express.js web framework for routes, and RESTful Apis.
 
 #### Front end
 
@@ -173,7 +173,7 @@ Ansorque uses:
 - [Morgan](https://github.com/expressjs/morgan) for the http logger middleware for node.js
 - [http-errors](https://github.com/jshttp/http-errors) create errors and be able to display them with ease
 - [cookie-parser](https://github.com/js-cookie/js-cookie) for cookie parsing in use of cookie storage
-- [Sequelize](https://github.com/sequelize/sequelize) for search function
+- [Sequelize](https://github.com/sequelize/sequelize) 
 - [Faker](https://www.npmjs.com/package/faker) for some seeder data
 
 # Challenges
