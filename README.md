@@ -146,9 +146,10 @@ No special instructions, the Application is fully functional!
 ```
 
 # Overall Structure
-![](https://raw.githubusercontent.com/Mikhail-Kashin/Team-Phobos-TipsyStack/main/public/images/jsIcon.png =250x)![](https://raw.githubusercontent.com/Mikhail-Kashin/Team-Phobos-TipsyStack/main/public/images/node%20js%20npm.png =250x)    ![](https://miro.medium.com/max/800/1*VeM-5lsAtrrJ4jXH96h5kg.png =250x)
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /> <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white%22%3E" /> <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white%22/%3E" /> <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" /> <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+<img src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white%22%3E" />
 
-![](https://raw.githubusercontent.com/Mikhail-Kashin/Team-Phobos-TipsyStack/5096fabbfd8edd3a5eeb3d66cb93762b86d0f7a7/public/images/css3.svg =250x) ![](https://raw.githubusercontent.com/Mikhail-Kashin/Team-Phobos-TipsyStack/main/public/images/6lu26u1oaysf8cdfiiux.png =250x)
 
 
 
