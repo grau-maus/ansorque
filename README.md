@@ -175,13 +175,6 @@ Ansorque uses:
 - [Sequelize](https://github.com/sequelize/sequelize) for interacting with the SQL database. 
 - [Faker](https://www.npmjs.com/package/faker) for some seeder data
 
-# Challenges
-
-`code snippet of the challenge` 
-
-//How you solved the challenge
-
-//link the files where the solution occurred from your actual repo. 
 
 # Future Features 
 
