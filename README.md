@@ -157,7 +157,7 @@ No special instructions, the Application is fully functional!
 
 #### Back end
 
-The app was built using  on the back end with a postgreSQL database and JavaScript. Back end structure is RESTful and all the data requests use AJAX and are fulfilled with a JSON API. Associations are used to prefetch data in order to minimize SQL queries to the database.
+The app was built using  on the back end with a postgreSQL for the database. Using Express.js web framework for routes, and  RESTful Apis.
 
 #### Front end
 
