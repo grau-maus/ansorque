@@ -1,0 +1,18 @@
+name: Push Container to Heroku
+
+on: 
+  push:
+    branches:
+      - deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Login to Heroku
+      env: 
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      run: heroku login 
+    - name: Build and push
+      run: git push heroku main:master
