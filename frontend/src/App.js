@@ -40,9 +40,6 @@ function App() {
           <Route exact path='/signup'>
             <SignupFormPage />
           </Route>
-          <Route exact path='/post/question'>
-            <PostQuestionPage />
-          </Route>
           <Route exact path='/question/:url'>
             {!userState && <Navigation isLoaded={isLoaded} />}
             <SingleQuestionPage />

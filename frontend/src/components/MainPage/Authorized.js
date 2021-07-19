@@ -62,10 +62,6 @@ export default function Authorized() {
     );
   };
 
-  const postQuestion = () => {
-    history.push('/post/question');
-  };
-
   const nextPage = () => {
     dispatch(addMoreQuestions(allQuestions.length));
   };
