@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "nanoid": "^3.1.22",
+    "node-fetch": "^2.6.1",
     "per-env": "^1.0.2",
     "pg": "^8.5.1",
     "random-js": "^2.1.0",
