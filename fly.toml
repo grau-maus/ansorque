@@ -1,15 +1,15 @@
-# fly.toml file generated for ansorque-test on 2022-12-17T19:14:34-07:00
+# fly.toml file generated for ansorque on 2022-12-17T22:44:15-07:00
 
-app = "ansorque-test"
+app = "ansorque"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
 
-[env]
-  PORT = "8080"
-
 [deploy]
   release_command = "bash release.sh"
+
+[env]
+  PORT = "8080"
 
 [experimental]
   allowed_public_ports = []
