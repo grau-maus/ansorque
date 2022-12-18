@@ -1,9 +1,7 @@
-import { csrfFetch } from './csrf';
+import { csrfFetch } from "./csrf";
 
-const SET_USER = 'session/setUser';
-const REMOVE_USER = 'session/removeUser';
-
-
+const SET_USER = "session/setUser";
+const REMOVE_USER = "session/removeUser";
 
 const setUser = (user) => {
   return {
@@ -20,8 +18,8 @@ const removeUser = () => {
 
 export const signup = (user) => async (dispatch) => {
   const { username, email, password } = user;
-  const response = await csrfFetch('/api/users', {
-    method: 'POST',
+  const response = await csrfFetch("/api/users", {
+    method: "POST",
     body: JSON.stringify({
       username,
       email,
@@ -35,8 +33,8 @@ export const signup = (user) => async (dispatch) => {
   return response;
 };
 
-export const restoreUser = () => async dispatch => {
-  const response = await csrfFetch('/api/session');
+export const restoreUser = () => async (dispatch) => {
+  const response = await csrfFetch("/api/session");
   const data = await response.json();
 
   dispatch(setUser(data.user));
@@ -46,8 +44,8 @@ export const restoreUser = () => async dispatch => {
 
 export const login = (user) => async (dispatch) => {
   const { credential, password } = user;
-  const response = await csrfFetch('/api/session', {
-    method: 'POST',
+  const response = await csrfFetch("/api/session", {
+    method: "POST",
     body: JSON.stringify({
       credential,
       password,
@@ -61,27 +59,33 @@ export const login = (user) => async (dispatch) => {
 };
 
 export const demoLogin = () => async (dispatch) => {
-  const response = await csrfFetch('/api/session', {
-    method: 'POST',
-    body: JSON.stringify({
-      credential: 'Demo-lition',
-      password: 'password',
-    }),
-  });
-  const data = await response.json();
+  try {
+    const response = await csrfFetch("/api/session", {
+      method: "POST",
+      body: JSON.stringify({
+        credential: "Demo-lition",
+        password: "password",
+      }),
+    });
 
-  dispatch(setUser(data.user));
+    const data = await response.json();
 
-  return response;
+    dispatch(setUser(data.user));
+
+    return response;
+  } catch (err) {
+    const errMsg = `Status: ${err.status} ${err.statusText}`;
+    console.error(`Error logging in as demo user: ${errMsg}`, "ERROR");
+  }
 };
 
 const initialState = {
-  user: null
+  user: null,
 };
 
 export const logout = () => async (dispatch) => {
-  const response = await csrfFetch('/api/session', {
-    method: 'DELETE',
+  const response = await csrfFetch("/api/session", {
+    method: "DELETE",
   });
   dispatch(removeUser());
   return response;
@@ -97,7 +101,6 @@ export const logout = () => async (dispatch) => {
 //   updatedAt: new Date()
 //   }
 // }
-
 
 const sessionReducer = (state = initialState, action) => {
   let newState;
@@ -119,7 +122,5 @@ const sessionReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-
 
 export default sessionReducer;

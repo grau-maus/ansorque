@@ -1,4 +1,4 @@
-import { Random } from 'random-js';
+import { Random } from "random-js";
 
 const random = new Random();
 
@@ -29,4 +29,28 @@ export const randomIcon = () => {
   ];
 
   return profileIcon[random.integer(0, 21)];
+};
+
+export const retryDemoLogin = async (dispatch, thunk, setLoadingState) => {
+  try {
+    let retries = 0;
+    let response = await dispatch(thunk());
+
+    if (!response || (response.status && response.status !== 200)) {
+      const retryInterval = setInterval(async () => {
+        if (
+          retries < 2 &&
+          (!response || (response.status && response.status !== 200))
+        ) {
+          response = await dispatch(thunk());
+          retries += 1;
+        } else {
+          setLoadingState(false);
+          clearInterval(retryInterval);
+        }
+      }, 1000);
+    }
+  } catch (err) {
+    console.error(`Error encountered: ${err}`, "ERROR");
+  }
 };
