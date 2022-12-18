@@ -1,7 +1,7 @@
 // THIS FILE ALLOWS THE USAGE OF THE DATABASE
 // CONFIGURATION FILE LOADED FROM THE '.env'
 // FILE INTO './config/index.js'
-const config = require('./index');
+const config = require("./index");
 
 const db = config.db;
 const username = db.username;
@@ -19,18 +19,12 @@ module.exports = {
     password,
     database,
     host,
-    dialect: 'postgres',
-    seederStorage: 'sequelize',
+    dialect: "postgres",
+    seederStorage: "sequelize",
   },
   production: {
-    use_env_variable: 'DATABASE_URL',
-    dialect: 'postgres',
-    seederStorage: 'sequelize',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
+    use_env_variable: "DATABASE_URL",
+    dialect: "postgres",
+    seederStorage: "sequelize",
   },
 };
